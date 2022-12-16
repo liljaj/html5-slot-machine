@@ -5,21 +5,9 @@ export default class Slot {
   constructor(domElement, config = {}) {
     Symbol.preload();
 
-    this.currentSymbols = [
-      ["death_star", "death_star", "death_star"],
-      ["death_star", "death_star", "death_star"],
-      ["death_star", "death_star", "death_star"],
-      ["death_star", "death_star", "death_star"],
-      ["death_star", "death_star", "death_star"],
-    ];
+    this.currentSymbols = [["img1", "img1", "img1"]];
 
-    this.nextSymbols = [
-      ["death_star", "death_star", "death_star"],
-      ["death_star", "death_star", "death_star"],
-      ["death_star", "death_star", "death_star"],
-      ["death_star", "death_star", "death_star"],
-      ["death_star", "death_star", "death_star"],
-    ];
+    this.nextSymbols = [["img1", "img1", "img1"]];
 
     this.container = domElement;
 
@@ -37,18 +25,17 @@ export default class Slot {
       this.container.classList.add("inverted");
     }
 
+    //this.audioFile = require("../assets/sounds/test.mp3");
+    //this.audio = new Audio(this.audioFile);
+
     this.config = config;
   }
 
   spin() {
+    //this.audio.currentTime = 0; this.audio.play();
+
     this.currentSymbols = this.nextSymbols;
-    this.nextSymbols = [
-      [Symbol.random(), Symbol.random(), Symbol.random()],
-      [Symbol.random(), Symbol.random(), Symbol.random()],
-      [Symbol.random(), Symbol.random(), Symbol.random()],
-      [Symbol.random(), Symbol.random(), Symbol.random()],
-      [Symbol.random(), Symbol.random(), Symbol.random()],
-    ];
+    this.nextSymbols = [[Symbol.random(), Symbol.random(), Symbol.random()]];
 
     this.onSpinStart(this.nextSymbols);
 

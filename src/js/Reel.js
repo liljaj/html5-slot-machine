@@ -23,7 +23,7 @@ export default class Reel {
         },
       ],
       {
-        duration: this.factor * 1000,
+        duration: this.factor * 2000,
         easing: "ease-in-out",
       }
     );
@@ -35,7 +35,7 @@ export default class Reel {
   }
 
   get factor() {
-    return 1 + Math.pow(this.idx / 2, 2);
+    return 5 + Math.pow(this.idx / 2, 2);
   }
 
   renderSymbols(nextSymbols) {
@@ -58,7 +58,7 @@ export default class Reel {
       (resolve) => (this.animation.onfinish = resolve)
     );
     const timeoutPromise = new Promise((resolve) =>
-      setTimeout(resolve, this.factor * 1000)
+      setTimeout(resolve, this.factor * 50000)
     );
 
     this.animation.play();
